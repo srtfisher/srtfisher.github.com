@@ -1,0 +1,57 @@
+header#global-header {
+	background: whiteSmoke;
+	padding: 0;
+	border-bottom: 1px solid #888888;
+	-webkit-box-shadow: 0px 0px 16px -2px #888888;
+	-moz-box-shadow: 0px 0px 16px -2px #888888;
+	box-shadow: 0px 0px 16px -2px #888888;
+	width: 100%;
+}
+
+#global-header img {
+	margin: 15px 0;
+}
+#global-header ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+}
+
+#global-header nav li {
+	float:left;
+}
+#global-header nav a {
+	display:inline-block;
+	padding:19px 12px;
+	line-height: 30px;
+	font-size:16px;
+	border-top: 5px solid transparent;
+	color: #555;
+}
+#global-header nav li a:hover {
+	border-top-color: #1a408e;
+	color: black;
+}
+
+#project-listing { margin-top: 20px; }
+#project-listing .project {
+	background: whiteSmoke;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.76), inset 0 0 0px 1px white;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#project-listing .project h3 {
+	font-size: 22px;
+	margin: 5px 0 10px;
+	color: #222;
+	text-shadow: 0 1px 0 white;
+}
+
+#project-listing .project p {
+	color: #888;
+	text-shadow: 0 1px 0 white;
+	font-size:15px;
+	line-height: 20px;
+	margin: 0;
+}
