@@ -41,6 +41,10 @@ header#global-header {
 	padding: 20px;
 	margin-bottom: 20px;
 }
+#project-listing .project:hover {
+	border-color: #A8A8A8;
+	transition: .25s;
+}
 #project-listing .project h3 {
 	font-size: 22px;
 	margin: 5px 0 10px;
@@ -54,4 +58,10 @@ header#global-header {
 	font-size:15px;
 	line-height: 20px;
 	margin: 0;
+}
+
+p.footer-call {
+	font-size: 20px;
+	margin: 0;
+	padding: 20px 0;
 }
