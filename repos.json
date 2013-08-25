@@ -1,0 +1,55 @@
+{
+	"last_update": "8/25/2013",
+	"repositories": [
+		{
+			"url": "https://github.com/srtfisher/Lockdown-WPAdmin",
+			"name": "Lockdown WP Admin",
+			"description": "WordPress Plugin to hide login and admin URLs when not logged into WordPress"
+		},
+		{
+			"url": "https://github.com/srtfisher/wp-composer",
+			"name": "wp composer",
+			"description": "Interface to handle Composer depdencies inside of WordPress (via WP-CLI)"
+		},
+		{
+			"url": "https://github.com/srtfisher/open-graph-protocol-tools",
+			"name": "Open Graph Protocol Tools",
+			"description": "Namespaced PHP Open Graph Protocol Builder/Fetcher"
+		},
+		{
+			"url": "https://github.com/srtfisher/dotfiles",
+			"name": "dotfiles",
+			"description": "Sharing the configuration to my setup to help others."
+		},
+		{
+			"url": "https://github.com/kaw393939/wconsumer",
+			"name": "Web Consumer Manager",
+			"description": "A management interface to building out web services in Drupal."
+		},
+		{
+			"url": "https://github.com/srtfisher/toaster",
+			"name": "toaster",
+			"description": "A Namespaced and PHP 5.4-esq setup to WordPress on the command line. WIP"
+		},
+		{
+			"url": "https://github.com/matei1987/visualData",
+			"name": "Visual Data",
+			"description": "Add some beauty to visualizing state spending in the United States."
+		},
+		{
+			"url":"https://github.com/mywebclass/groupgrade2",
+			"name": "Personal Learning Assessment",
+			"description": "An undergraduate research project at <a href=\"http://njit.edu/\">NJIT</a> to review a new approach to learning in the classroom."
+		},
+		{
+			"url":"https://github.com/srtfisher/Codeigniter-Features",
+			"name": "Codeigniter Features",
+			"description": "Disable or enable features for users in Codeignite."
+		},
+		{
+			"url":"https://github.com/srtfisher/CodeIgniter-Remap",
+			"name": "Codeigniter Remap",
+			"description": "Adding some beauty into CodeIgniter's method names. A rest-ful core plugin that can allow you to make beautiful method names with no PHP-naming limitation."
+		}
+	]
+}
