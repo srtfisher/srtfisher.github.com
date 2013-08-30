@@ -22,7 +22,7 @@
 			"description": "Sharing the configuration to my setup to help others."
 		},
 		{
-			"url": "https://github.com/kaw393939/wconsumer",
+			"url": "https://github.com/wconsumer/wconsumer",
 			"name": "Web Consumer Manager",
 			"description": "A management interface to building out web services in Drupal."
 		},
@@ -38,7 +38,7 @@
 		},
 		{
 			"url":"https://github.com/mywebclass/groupgrade2",
-			"name": "Personal Learning Assessment",
+			"name": "CLASS Personal Learning Assessment",
 			"description": "An undergraduate research project at NJIT to review a new approach to learning in the classroom."
 		},
 		{

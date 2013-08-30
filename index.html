@@ -3,7 +3,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
@@ -34,75 +33,37 @@
 		</div>
 	</header>
 
-	<section id="project-listing" class="row">
-		<a href="https://github.com/srtfisher/Lockdown-WPAdmin">
-			<div class="project">
-				<h3>Lockdown WP Admin</h3>
-				<p>WordPress Plugin to hide login and admin URLs when not logged into WordPress</p>
-			</div>
-		</a>
-		
-		<a href="https://github.com/srtfisher/wp-composer">
-			<div class="project">
-				<h3>wp composer</h3>
-				<p>Interface to handle Composer depdencies inside of WordPress (via WP-CLI)</p>
-			</div>
-		</a>
-		<a href="https://github.com/srtfisher/open-graph-protocol-tools">
-			<div class="project">
-				<h3>Open Graph Protocol Tools</h3>
-				<p>Namespaced PHP Open Graph Protocol Builder/Fetcher</p>
-			</div>
-		</a>
-		<a href="https://github.com/srtfisher/dotfiles">
-			<div class="project">
-				<h3>.dotfiles</h3>
-				<p>Sharing the configuration to my setup to help others.</p>
-			</div>
-		</a>
-		<a href="https://github.com/kaw393939/wconsumer">
-			<div class="project">
-				<h3>Web Consumer Manager</h3>
-				<p>A management interface to building out web services in Drupal.</p>
-			</div>
-		</a>
-		<a href="https://github.com/srtfisher/toaster">
-			<div class="project">
-				<h3>toaster</h3>
-				<p>A Namespaced and PHP 5.4-esq setup to WordPress on the command line. WIP</p>
-			</div>
-		</a>
-		
-		<a href="https://github.com/matei1987/visualData">
-			<div class="project">
-				<h3>Visual Data</h3>
-				<p>Add some beauty to visualizing state spending in the United States.</p>
-			</div>
-		</a>
-		
-		
-		<a href="https://github.com/webizly/groupgrade">
-			<div class="project">
-				<h3>Personal Learning Assessment</h3>
-				<p>An undergraduate research project at <a href="http://njit.edu/">NJIT</a> to review a new approach to learning in the classroom.</p>
-			</div>
-		</a>
-		
-		<a href="https://github.com/srtfisher/Codeigniter-Features">
-			<div class="project">
-				<h3>Codeigniter Features</h3>
-				<p>Disable or enable features for users in Codeigniter</p>
-			</div>
-		</a>
+	<section id="project-listing" class="row">Loading...</section>
+	<p align="center" class="footer-call"><a href="http://seanfisher.co/contact">Let's get in touch?</a></p>
+	<div class="row">
+		<h4 align="center">Latest GitHub Activity</h4>
 
-		<a href="https://github.com/srtfisher/CodeIgniter-Remap">
+		<div id="activity-listing">Loading...</div>
+	</div>
+
+	<p align="center" class="footer-call"><a href="http://seanfisher.co/contact">Let's get in touch?</a></p>
+
+	<p align="center">&copy; 2013 SF, All Rights Reserved</p>
+	
+	<script id="project-template" type="text/x-handlebars-template">
+		{{#each repositories}}
+		<a href="{{url}}">
 			<div class="project">
-				<h3>Codeigniter Remap</h3>
-				<p>Adding some beauty into CodeIgniter's method names. A rest-ful core plugin that can allow you to make beautiful method names with no PHP-naming limitation.</p>
+				<h3>{{name}}</h3>
+				<p>{{description}}</p>
 			</div>
 		</a>
-		
-	</section>
+		{{/each}}
+	</script>
 
-	<p align="center" class="footer-call"><a href="http://seanfisher.co/#contact">Let's get in touch?</a></p>
+	<script id="activity-template" type="text/x-handlebars-template">
+		{{#each data}}
+		<div class="project">
+			<p><strong>{{activityType type}}</strong> {{activityReciever this}}</p>
+		</div>
+		{{/each}}
+	</script>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/handlebars.js"></script>
+	<script type="text/javascript" src="javascripts/app.js"></script>
 </body>

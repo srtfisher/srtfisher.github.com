@@ -1,38 +1,148 @@
-;(function ($, window, undefined) {
-  'use strict';
+Handlebars.registerHelper('activityType', function(type) {
+	switch(type) {
+		case 'PullRequestReviewCommentEvent' :
+		case 'IssueCommentEvent' :
+		case 'CommitCommentEvent' :
+			return 'Commented on a ';
+			break;
+		case 'CreateEvent' :
+			return 'Created a ';
+			break;
+		case 'DeleteEvent' :
+			return 'Deleted a ';
+			break;
+		case 'DownloadEvent' :
+			return 'Created a download ';
+			break;
+		case 'FollowEvent' :
+			return 'Followed ';
+			break;
+		case 'ForkEvent' :
+			return 'Forked ';
+			break;
+		case 'ForkApplyEvent' :
+			return 'Applied a fork ';
+			break;
+		case 'GistEvent' :
+			return 'Gist: ';
+			break;
+		case 'GollumEvent' :
+			return 'Gollum: ';
+			break;
+		case 'IssuesEvent' :
+			return;
+			break;
+		case 'MemberEvent' :
+			return 'Added ';
+			break;
+		case 'PublicEvent' :
+			return 'Open Sourced ';
+			break;
+		case 'PullRequestEvent' :
+			return '';
+			break;
 
-  var $doc = $(document),
-      Modernizr = window.Modernizr;
+		case 'PushEvent' :
+			return 'Pushed to ';
+			break;
+		case 'TeamAddEvent' :
+			return '';
+			break;
+		case 'WatchEvent' :
+			return 'Watched ';
+			break;
 
-  $(document).ready(function() {
-    $.fn.foundationAlerts           ? $doc.foundationAlerts() : null;
-    $.fn.foundationButtons          ? $doc.foundationButtons() : null;
-    $.fn.foundationAccordion        ? $doc.foundationAccordion() : null;
-    $.fn.foundationNavigation       ? $doc.foundationNavigation() : null;
-    $.fn.foundationTopBar           ? $doc.foundationTopBar() : null;
-    $.fn.foundationCustomForms      ? $doc.foundationCustomForms() : null;
-    $.fn.foundationMediaQueryViewer ? $doc.foundationMediaQueryViewer() : null;
-    $.fn.foundationTabs             ? $doc.foundationTabs({callback : $.foundation.customForms.appendCustomMarkup}) : null;
-    $.fn.foundationTooltips         ? $doc.foundationTooltips() : null;
-    $.fn.foundationMagellan         ? $doc.foundationMagellan() : null;
-    $.fn.foundationClearing         ? $doc.foundationClearing() : null;
+		case 'ReleaseEvent' :
+			return 'Created a ';
+			break;
+		default :
+			return '';
+			break;
+	}
+});
 
-    $.fn.placeholder                ? $('input, textarea').placeholder() : null;
-  });
+Handlebars.registerHelper('activityReciever', function(data) {
+	switch(data.type) {
+		case 'PullRequestReviewCommentEvent' :
+		case 'IssueCommentEvent' :
+		case 'CommitCommentEvent' :
+			r = 'Commented on a ';
+			break;
+		case 'CreateEvent' :
+			r = data.payload.ref_type+' called <strong>'+data.payload.ref+'</strong> on <a href="http://github.com/'+data.repo.name+'">'+data.repo.name+'</a>';
+			break;
+		case 'DeleteEvent' :
+			r = 'Deleted a ';
+			break;
+		case 'DownloadEvent' :
+			r = 'Created a download ';
+			break;
+		case 'FollowEvent' :
+			r = '<a href="http://github.com/'+data.payload.target.login+'">'+data.payload.target.name+'</a>';
+			break;
+		case 'ForkEvent' :
+			r = '<a href="http://github.com/'+data.payload.forkee.full_name+'">'+data.repo.name+'</a>';
+			break;
+		case 'ForkApplyEvent' :
+			r = 'Applied a fork ';
+			break;
+		case 'GistEvent' :
+			r = '<a href="'+data.payload.gist.html_url+'">'+data.payload.gist.html_url+'</a>';
+			break;
+		case 'ReleaseEvent' :
+			r = '<a href="'+data.payload.release.html_url+'">'+data.payload.release.name+'</a> '
+				+'<a href="http://github.com/'+data.repo.name+'">'+data.repo.name+'</a>';
+			break;
+		case 'GollumEvent' :
+			r = 'Gollum: ';
+			break;
+		case 'IssuesEvent' :
+			r = '';
+			break;
+		case 'MemberEvent' :
+			r = 'Added ';
+			break;
+		case 'PublicEvent' :
+			r = 'Open Sourced ';
+			break;
+		case 'PullRequestEvent' :
+			r = '<strong>'+capitaliseFirstLetter(data.payload.action)+'</strong> a <a href="'+data.payload.pull_request.html_url+'">pull request</a> on '
+			+'<a href="http://github.com/'+data.repo.name+'">'+data.repo.name+'</a>';
+			break;
 
-  // UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE8 SUPPORT AND ARE USING .block-grids
-  // $('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'both'});
-  // $('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'both'});
-  // $('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'both'});
-  // $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'both'});
+		case 'WatchEvent' :
+		case 'PushEvent' :
+			r = '<a href="http://github.com/'+data.repo.name+'">'+data.repo.name+'</a>';
+			break;
+		case 'TeamAddEvent' :
+			r = '';
+			break;
+		
+		default :
+			r = '';
+			break;
+	}
 
-  // Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking).
-  if (Modernizr.touch && !window.location.hash) {
-    $(window).load(function () {
-      setTimeout(function () {
-        window.scrollTo(0, 1);
-      }, 0);
-    });
-  }
+	return new Handlebars.SafeString(r);
+});
 
-})(jQuery, this);
+$(document).ready(function() {
+	$.getJSON('/repos.json', function(data)
+	{
+		var source = $('#project-template').html();
+		template = Handlebars.compile(source);
+		$('#project-listing').html(template(data));
+	});
+
+	$.getJSON('https://api.github.com/users/srtfisher/events?callback=?', function(data)
+	{
+		console.log(data);
+		template = Handlebars.compile($('#activity-template').html());
+		$('#activity-listing').html(template(data));
+	});
+});
+
+function capitaliseFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
