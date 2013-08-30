@@ -29,7 +29,7 @@ header#global-header {
 	color: #555;
 }
 #global-header nav li a:hover {
-	border-top-color: #1a408e;
+	border-top-color: #333;
 	color: black;
 }
 
