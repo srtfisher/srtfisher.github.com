@@ -27,6 +27,11 @@
 			"description": "A management interface to building out web services in Drupal."
 		},
 		{
+			"url":"https://github.com/srtfisher/njit-class",
+			"name": "CLASS Personal Learning Assessment",
+			"description": "An undergraduate research project at NJIT to review a new approach to learning in the classroom."
+		},
+		{
 			"url": "https://github.com/srtfisher/toaster",
 			"name": "toaster",
 			"description": "A Namespaced and PHP 5.4-esq setup to WordPress on the command line. WIP"
@@ -35,11 +40,6 @@
 			"url": "https://github.com/matei1987/visualData",
 			"name": "Visual Data",
 			"description": "Add some beauty to visualizing state spending in the United States."
-		},
-		{
-			"url":"https://github.com/mywebclass/groupgrade2",
-			"name": "CLASS Personal Learning Assessment",
-			"description": "An undergraduate research project at NJIT to review a new approach to learning in the classroom."
 		},
 		{
 			"url":"https://github.com/srtfisher/Codeigniter-Features",
