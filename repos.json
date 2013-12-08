@@ -12,6 +12,11 @@
 			"description": "Interface to handle Composer depdencies inside of WordPress (via WP-CLI)"
 		},
 		{
+			"url": "https://github.com/srtfisher/time-iterator",
+			"name": "time-iterator",
+			"description": "Time Iterator to request data for specific intervals of time."
+		},
+		{
 			"url": "https://github.com/srtfisher/open-graph-protocol-tools",
 			"name": "Open Graph Protocol Tools",
 			"description": "Namespaced PHP Open Graph Protocol Builder/Fetcher"
